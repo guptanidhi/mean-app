@@ -1,0 +1,13 @@
+<app-nav></app-nav><br/>
+<div style="text-align: center;border-style: groove;padding: 10px;">
+  <img src={{favoriteLogo}} alt="MOVIE LOGO" height="150px" width="150px" />
+  <h2>{{heading}}</h2>
+</div>
+<div style="width: 95%;text-align: center;margin:10px;">
+  <div *ngFor="let movie of movies">
+    <h3>{{ movie.title}} - {{ movie.vote_average}}</h3>
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Movie Poster" height="250px" width="350px" />
+    <img src={{deleteIcon}} style="padding-left:5px;" (click)="deleteMovie($event)" id={{movie.id}} alt="Delete Movie" height="50px" width="50px" />
+    <hr/>
+  </div>
+</div>

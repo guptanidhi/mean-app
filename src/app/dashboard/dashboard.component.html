@@ -1,0 +1,17 @@
+<app-nav></app-nav><br/>
+<div style="text-align: center;border-style: groove;padding: 10px;">
+  <img src={{imagePath}} alt="MOVIE LOGO" height="150px" width="150px" />
+  <h2>{{heading}}</h2>
+  <input type="text" placeholder="Search Movie" #movieName>
+  <button (click)="searchMovie(movieName.value)">Search</button>
+</div>
+<div style="width: 95%;text-align: center;margin:10px;">
+  <div *ngFor="let movie of movies">
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Movie Poster" height="250px" width="350px" />
+    <h4>{{ movie.title }} - {{movie.vote_average}} - <img src={{ratingImg}} alt="Rating Logo" height="20px" width="20px" /></h4>
+    <!-- <img src={{favIcon}} id={{movie.id}} alt="Add to Favorite" height="100px" width="100px" /> -->
+    <!-- <button id={{movie.id}} (click)="addToFav($event)">Add to Fav</button> -->
+    <img src={{favIcon}} style="padding-left:5px;" (click)="addToFav($event)" id={{movie.id}} alt="Add to Favorites Movie" height="50px" width="50px" />
+    <hr/>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<app-nav></app-nav><br/>
+<div style="text-align: center;border-style: groove;padding: 5px;">
+  <img src={{loginLogo}} alt="LOGIN LOGO" height="100px" width="100px" />
+  <h2>Login</h2>
+  <form (submit)="login()">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" required [(ngModel)]="option.username" #username="ngModel"/><br/>
+      <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+        <div [hidden]="!username.errors.required">
+          Username is required.
+        </div>
+      </div>
+    </div>
+    <label>Password</label>
+    <input type="password" name="password" required minlength="5" [(ngModel)]="option.password" #password="ngModel"/><br/><br/>
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+      <div [hidden]="!password.errors.required">
+        Password is required.
+      </div>
+      <div [hidden]="!password.errors.minlength">
+        Password is minimum of 5 character.
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
